@@ -74,7 +74,7 @@ Although you can use them, for a more unique website, replace these images with 
                         </ul>
                         <ul>
                           <id="signup">
-                          <a href="">Sign up FREE</a>
+                          <a href="JavaScript:newPopup('http://www.quackit.com/javascript/examples/sample_popup.cfm');">Sign up FREE</a>
                         </ul>
                  </nav>
 
@@ -90,11 +90,11 @@ Although you can use them, for a more unique website, replace these images with 
                 <!-- location input -->
                 <form>
                 <fieldset id="location">
-                    <input id="location1" type="text" name="    street1" style="background-color:transparent" placeholder="street1"  required>
+                  <!--  <input id="location1" type="text" name="    street1" style="background-color:transparent" placeholder="street1"  required>
                     <input id="location2" type="text" name="    street2" style="background-color:transparent" placeholder="street2" required>
-
-                    <input class="btn btn-primary btn-lg" type="submit" id="submit" value="my location">
-
+                  --> <a class="btn btn-primary btn-lg" href="filter1.html"> search my food </a>
+                  <!--  <input class="btn btn-primary btn-lg" type="submit" id="submit" value="my location">
+                  -->
                 </fieldset>
               </form>
 
@@ -110,8 +110,8 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                 	<span class="glyphicon glyphicon-ok" style="font-size: 60px"></span>
-                    <h3 class="section-heading">Hungry ? In Hurry ? don't want to keep searching for your choice of food ?
-                    dont worry ! <br> use "find my food" to search food you want </h3>
+                    <h3 class="section-heading">Hungry ? In hurry ? Don't want to keep searching for your choice of food ?
+                    Dont worry ! <br> Use "find my food" to search food you want </h3>
 
             </div>
         </div>
@@ -119,7 +119,7 @@ Although you can use them, for a more unique website, replace these images with 
 
 
 
-	<!-- Content 2 -->
+	<!-- Content 2
      <section class="content content-2">
         <div class="container">
             <div class="row">
@@ -134,7 +134,7 @@ Although you can use them, for a more unique website, replace these images with 
 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Promos -->
 	<div class="container-fluid">
@@ -142,14 +142,14 @@ Although you can use them, for a more unique website, replace these images with 
         	<a href="#">
 				<div class="col-md-4 promo-item item-1">
 					<h3>
-						Unleash
+						Cuisine
 					</h3>
 				</div>
             </a>
             <a href="#">
 				<div class="col-md-4 promo-item item-2">
 					<h3>
-						Synergize
+						Reviews
 					</h3>
 				</div>
             </a>
@@ -157,7 +157,7 @@ Although you can use them, for a more unique website, replace these images with 
 			<a href="#">
 				<div class="col-md-4 promo-item item-3">
 					<h3>
-						Procrastinate
+						Cafes
 					</h3>
 				</div>
             </a>
@@ -180,18 +180,13 @@ Although you can use them, for a more unique website, replace these images with 
     	<!-- Contact Us -->
         <div class="contact">
         	<div class="container">
-				<class="section-heading"> <h2>CDK global Hackathon</h2>
+				<class="section-heading"> <h2>CDK Global Hackathon</h2>
 				 <h3> Find my food "Smart food finder" </h3>
-				<p>By Abi, Aditi, Dev, Nir, Teju</p>
+				<p>By Abhi, Aditi, Dev, Nir, Teju</p>
         	</div>
         </div>
 
-        <!-- Copyright etc -->
-        <div class="small-print">
-        	<div class="container">
-        		<p>Copyright &copy; Example.com 2015</p>
-        	</div>
-        </div>
+
 
     </footer>
 
@@ -206,6 +201,54 @@ Although you can use them, for a more unique website, replace these images with 
 
     <!-- Custom Javascript -->
     <script src="js/custom.js"></script>
+
+    <!-- pop up -->
+    <script type="text/javascript">
+// Popup window code
+function newPopup(url) {
+	popupWindow = window.open(
+		url,'popUpWindow','height=1000,width=700,right=20,top=120,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+</script>
+
+
+<!-- get location -->
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
 
 </body>
 
